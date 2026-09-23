@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+<link rel="manifest" href="manifest.json">
+<title>Clips Star 804</title>
+
+<style>
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+body{
+  background:#000;
+  color:#fff;
+  font-family:Arial,sans-serif;
+  overflow:hidden;
+}
+
+.hide{
+  display:none !important;
+}
+
+
+/* LOGIN */
+
+#login{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.loginBox{
+  width:100%;
+  max-width:380px;
+  text-align:center;
+}
+
+.logo{
+  font-size:30px;
+  font-weight:bold;
+  margin-bottom:20px;
+}
+
+input{
+  width:100%;
+  padding:15px;
+  margin:7px 0;
+  border:0;
+  border-radius:8px;
+  font-size:16px;
+}
+
+.mainBtn{
+  width:100%;
+  padding:15px;
+  margin-top:10px;
+  border:0;
+  border-radius:8px;
+  background:#fe2c55;
+  color:#fff;
+  font-size:17px;
+  font-weight:bold;
+}
+
+
+/* HOME */
+
+#home{
+  height:100vh;
+}
+
+.feed{
+  height:100vh;
+  overflow-y:auto;
+  scroll-snap-type:y mandatory;
+}
+
+.videoBox{
+  height:100vh;
+  position:relative;
+  scroll-snap-align:start;
+  background:#111;
+}
+
+.videoBox video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.top{
+  position:absolute;
+  top:15px;
+  left:0;
+  right:0;
+  text-align:center;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.info{
+  position:absolute;
+  left:15px;
+  bottom:90px;
+  z-index:5;
+}
+
+.info h3{
+  margin-bottom:8px;
+}
+
+.actions{
+  position:absolute;
+  right:10px;
+  bottom:100px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  z-index:10;
+}
+
+.actionBtn{
+  background:none;
+  border:0;
+  color:#fff;
+  font-size:29px;
+  padding:5px;
+}
+
+.count{
+  display:block;
+  font-size:12px;
+}
+
+
+/* BOTTOM */
+
+.bottom{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height:65px;
+  background:#000;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  z-index:20;
+}
+
+.bottom button{
+  background:none;
+  border:0;
+  color:#fff;
+  font-size:14px;
+}
+
+
+/* PANELS */
+
+.panel{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  background:#111;
+  z-index:50;
+  padding:20px;
+  overflow:auto;
+}
+
+.close{
+  float:right;
+  background:#fe2c55;
+  border:0;
+  color:#fff;
+  padding:10px;
+  border-radius:7px;
+}
+
+.panel h2{
+  margin-top:50px;
+}
+
+.result{
+  padding:15px;
+  margin-top:10px;
+  background:#222;
+  border-radius:8px;
+}
+
+
+/* UPLOAD */
+
+#videoFile{
+  background:#fff;
+  color:#000;
+  margin-top:20px;
+}
+
+  .commentsBox{
+  margin-top:20px;
+}
+
+.commentItem{
+  background:#222;
+  padding:10px;
+  margin-top:8px;
+  border-radius:8px;
+  }
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- LOGIN -->
+
+<div id="login">
+
+  <div class="loginBox">
+
+    <div class="logo">
+      ⭐ Clips Star 804
+    </div>
+
+    <p>
+      Login to continue
+    </p>
+
+    <input
+      id="username"
+      type="text"
+      placeholder="Username">
+<input id="email" type="email" placeholder="Email">
+    <input
+      id="password"
+      type="password"
+      placeholder="Password">
+
+    <button
+      class="mainBtn"
+      onclick="loginUser()">
+
+      Login
+      <button
+  class="mainBtn"
+  onclick="forgotPassword()">
+  Forgot Password
+      </button>
+<button
+  class="mainBtn"
+  onclick="registerUser()">
+  Create Account
+</button>
+    </button>
+
+    <p id="loginMsg"></p>
+
+  </div>
+
+</div>
+
+
+<!-- HOME -->
+
+<div id="home" class="hide">
+
+  <div id="feed" class="feed">
+
+
+    <!-- FIRST VIDEO -->
+
+    <div class="videoBox">
+
+      <video
+        src="https://www.w3schools.com/html/mov_bbb.mp4"
+        loop
+        autoplay
+        muted
+        playsinline>
+      </video>
+
+
+      <div class="top">
+        ⭐ Clips Star 804
+      </div>
+
+
+      <div class="info">
+
+        <h3>
+          @ClipsStar804
+        </h3>
+
+        <p>
+          Welcome to Clips Star 804 ⭐
+        </p>
+
+      </div>
+
+
+      <div class="actions">
+
+        <button
+          class="actionBtn"
+          onclick="likeVideo(this)">
+
+          ❤️
+
+          <span class="count">
+            0
+          </span>
+
+        </button>
+
+
+        <button
+          class="actionBtn"
+          onclick="commentVideo()">
+
+          💬
+
+        </button>
+
+
+        <button
+          class="actionBtn"
+          onclick="repostVideo()">
+
+          🔄
+
+        </button>
+
+
+        <button
+          class="actionBtn"
+          onclick="shareVideo()">
+
+          ↗️
+
+        </button>
+
+
+        <button
+          class="actionBtn"
+          onclick="toggleSound(this)">
+
+          🔇
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- BOTTOM NAV -->
+
+  <div class="bottom">
+
+    <button
+      onclick="goHome()">
+
+      🏠
+      <br>
+      Home
+
+    </button>
+
+
+    <button
+      onclick="openSearch()">
+
+      🔍
+      <br>
+      Search
+
+    </button>
+
+
+    <button
+      onclick="openUpload()">
+
+      ➕
+      <br>
+      Upload
+
+    </button>
+
+
+    <button
+      onclick="openProfile()">
+
+      👤
+      <br>
+      Profile
+
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- SEARCH -->
+
+<div
+  id="searchPanel"
+  class="panel hide">
+
+  <button
+    class="close"
+    onclick="closePanels()">
+
+    Close
+
+  </button>
+
+
+  <h2>
+    🔍 Search
+  </h2>
+
+
+  <input
+    id="searchInput"
+    type="text"
+    placeholder="Search username or video">
+
+
+  <button
+    class="mainBtn"
+    onclick="searchVideo()">
+
+    Search
+
+  </button>
+
+
+  <div id="searchResult"></div>
+
+</div>
+
+
+<!-- PROFILE -->
+
+<div
+  id="profilePanel"
+  class="panel hide">
+
+  <button
+    class="close"
+    onclick="closePanels()">
+
+    Close
+
+  </button>
+
+
+  <h2>
+    👤 Profile
+  </h2>
+
+
+  <div class="result">
+
+    <h3 id="profileName">
+      @User
+    </h3>
+
+    <p>
+      Clips Star 804 user
+    </p>
+
+    <p>
+      Videos: 0
+    </p>
+
+    <p>
+      <>
+  Followers:
+  <span id="followersCount">
+    0
+  </span>
+    </p>
+
+    <p>
+      Following: 0
+    </p>
+<button
+  class="mainBtn"
+  onclick="followUser(this)">
+
+  Follow
+
+</button>
+  </div>
+
+</div>
+
+
+<!-- UPLOAD -->
+
+<div
+  id="uploadPanel"
+  class="panel hide">
+
+  <button
+    class="close"
+    onclick="closePanels()">
+
+    Close
+
+  </button>
+
+
+  <h2>
+    ➕ Upload Video
+  </h2>
+
+
+  <input
+    id="videoFile"
+    type="file"
+    accept="video/*">
+
+
+  <button
+    class="mainBtn"
+    onclick="addVideo()">
+
+    Add Video
+
+  </button>
+
+
+  <p id="uploadMsg"></p>
+
+</div>
+
+
+<script>
+
+
+/* LOGIN */
+
+async function loginUser(){
+
+  let username =
+    document.getElementById("username").value.trim();
+
+  let email =
+    document.getElementById("email").value.trim();
+
+  let password =
+    document.getElementById("password").value.trim();
+
+  if(
+    username === "" ||
+    email === "" ||
+    password === ""
+  ){
+    document.getElementById("loginMsg").innerText =
+      "Username, email aur password likho.";
+    return;
+  }
+
+  try{
+
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+createUserWithEmailAndPassword
+    document.getElementById("login").classList.add("hide");
+
+    document.getElementById("home").classList.remove("hide");
+
+    document.getElementById("profileName").innerText =
+      "@" + username;
+
+  }catch(error){
+
+    document.getElementById("loginMsg").innerText =
+      "Login failed: " + error.message;
+
+  }
+  }
+
+
+/* HOME */
+
+function goHome(){
+
+  closePanels();
+
+}
+
+
+/* LIKE */
+
+function likeVideo(button){
+
+  let count =
+    button
+    .querySelector(".count");
+
+
+  let number =
+    Number(count.innerText);
+
+
+  if(
+    button.dataset.liked !== "yes"
+  ){
+
+    number++;
+
+    button.dataset.liked =
+      "yes";
+
+    button.firstChild
+      .textContent = "💖 ";
+
+  }else{
+
+    number--;
+
+    button.dataset.liked =
+      "";
+
+    button.firstChild
+      .textContent = "❤️ ";
+
+  }
+
+
+  count.innerText =
+    number;
+
+}
+
+
+/* COMMENT */
+
+function commentVideo(){
+
+  let text =
+    prompt(
+      "Apna comment likho:"
+    );
+
+
+  if(text){
+
+    alert(
+      "Comment added: " +
+      text
+    );
+
+  }
+
+}
+
+
+/* REPOST */
+
+function repostVideo(){
+
+  alert(
+    "Video repost ho gayi 🔄"
+  );
+
+}
+
+
+/* SHARE */
+
+function shareVideo(){
+
+  if(
+    navigator.share
+  ){
+
+    navigator.share({
+
+      title:
+        "Clips Star 804",
+
+      text:
+        "Check this video!"
+
+    });
+
+  }else{
+
+    alert(
+      "Share option ready hai."
+    );
+
+  }
+
+}
+
+
+/* SOUND */
+
+function toggleSound(button){
+
+  let box =
+    button
+    .closest(".videoBox");
+
+
+  let video =
+    box
+    .querySelector("video");
+
+
+  if(video.muted){
+
+    video.muted =
+      false;
+
+    button.innerText =
+      "🔊";
+
+  }else{
+
+    video.muted =
+      true;
+
+    button.innerText =
+      "🔇";
+
+  }
+
+}
+
+
+/* SEARCH */
+
+function openSearch(){
+
+  document
+  .getElementById("searchPanel")
+  .classList
+  .remove("hide");
+
+}
+
+
+function searchVideo(){
+
+  let text =
+    document
+    .getElementById("searchInput")
+    .value
+    .trim();
+
+
+  if(text === ""){
+
+    alert(
+      "Search mein kuch likho."
+    );
+
+    return;
+
+  }
+
+
+  document
+  .getElementById("searchResult")
+  .innerHTML =
+
+    "<div class='result'>" +
+
+    "Search result: " +
+
+    text +
+
+    "</div>";
+
+}
+
+
+/* PROFILE */
+
+function openProfile(){
+
+  document
+  .getElementById("profilePanel")
+  .classList
+  .remove("hide");
+
+}
+
+
+/* UPLOAD */
+
+function openUpload(){
+
+  document
+  .getElementById("uploadPanel")
+  .classList
+  .remove("hide");
+
+}
+
+
+/* ADD VIDEO */
+
+function addVideo(){
+
+  let input =
+    document
+    .getElementById("videoFile");
+
+
+  let file =
+    input.files[0];
+
+
+  if(!file){
+
+    alert(
+      "Pehle video select karo."
+    );
+
+    return;
+
+  }
+
+
+  let videoURL =
+    URL.createObjectURL(file);
+
+
+  let box =
+    document
+    .createElement("div");
+
+
+  box.className =
+    "videoBox";
+
+
+  box.innerHTML = `
+
+    <video
+      src="${videoURL}"
+      loop
+      autoplay
+      muted
+      playsinline>
+    </video>
+
+    <div class="top">
+      ⭐ Clips Star 804
+    </div>
+
+    <div class="info">
+
+      <h3>
+        @ClipsStar804
+      </h3>
+
+      <p>
+        New video ⭐
+      </p>
+
+    </div>
+
+    <div class="actions">
+
+      <button
+        class="actionBtn"
+        onclick="likeVideo(this)">
+
+        ❤️
+
+        <span class="count">
+          0
+        </span>
+
+      </button>
+
+      <button
+        class="actionBtn"
+        onclick="showComments()">
+
+        💬
+
+      </button>
+
+      <button
+        class="actionBtn"
+        onclick="repostVideo()">
+
+        🔄
+
+      </button>
+
+      <button
+        class="actionBtn"
+        onclick="shareVideo()">
+
+        ↗️
+
+      </button>
+
+      <button
+        class="actionBtn"
+        onclick="toggleSound(this)">
+
+        🔇
+
+      </button>
+
+    </div>
+
+  `;
+
+
+  document
+  .getElementById("feed")
+  .appendChild(box);
+let newVideo =
+  box.querySelector("video");
+
+setupVideo(newVideo);
+
+  input.value =
+    "";
+
+
+  closePanels();
+
+}
+
+
+/* CLOSE */
+
+function closePanels(){
+
+  document
+  .getElementById("searchPanel")
+  .classList
+  .add("hide");
+
+
+  document
+  .getElementById("profilePanel")
+  .classList
+  .add("hide");
+
+
+  document
+  .getElementById("uploadPanel")
+  .classList
+  .add("hide");
+document
+.getElementById("commentsPanel")
+.classList
+.add("hide");
+}
+
+/* VIDEO AUTO PLAY / SOUND CONTROL */
+
+let videos =
+  document.querySelectorAll(
+    ".videoBox video"
+  );
+
+
+let observer =
+  new IntersectionObserver(
+
+    function(entries){
+
+      entries.forEach(
+        function(entry){
+
+          let video =
+            entry.target;
+
+
+          if(entry.isIntersecting){
+
+            video.play()
+              .catch(
+                function(){}
+              );
+
+          }else{
+
+            video.pause();
+
+            video.muted =
+              true;
+
+          }
+
+        }
+      );
+
+    },
+
+    {
+      threshold:0.6
+    }
+
+  );
+
+
+videos.forEach(
+  function(video){
+
+    observer.observe(video);
+
+  }
+);
+
+function setupVideo(video){
+
+  observer.observe(video);
+
+  video.addEventListener(
+    "play",
+    function(){
+
+      document
+      .querySelectorAll(".videoBox video")
+      .forEach(
+        function(other){
+
+          if(other !== video){
+
+            other.pause();
+
+            other.muted = true;
+
+          }
+
+        }
+      );
+
+    }
+  );
+
+  }
+  document
+.querySelectorAll(".videoBox")
+.forEach(
+  function(box){
+
+    box.addEventListener(
+      "dblclick",
+      function(){
+
+        let button =
+          box.querySelector(
+            ".actionBtn"
+          );
+
+        likeVideo(button);
+
+      }
+    );
+
+  }
+);
+function showComments(){
+
+  document
+  .getElementById("commentsPanel")
+  .classList
+  .remove("hide");
+function addComment(){
+
+  let input =
+    document
+    .getElementById("commentInput");
+
+  let text =
+    input.value.trim();
+
+  if(text === ""){
+
+    alert("Comment likho.");
+
+    return;
+
+  }
+
+  let item =
+    document.createElement("div");
+
+  item.className =
+    "commentItem";
+
+  item.innerText =
+    text;
+
+  document
+  .getElementById("commentsList")
+  .appendChild(item);
+
+  input.value = "";
+
+  }
+  }
+  function addComment(){
+
+  let input =
+    document.getElementById(
+      "commentInput"
+    );
+
+  let text =
+    input.value.trim();
+
+  if(text === ""){
+
+    alert("Comment likho.");
+
+    return;
+
+  }
+
+  let item =
+    document.createElement(
+      "div"
+    );
+
+  item.className =
+    "commentItem";
+
+  item.innerText =
+    text;
+
+  document
+    .getElementById(
+      "commentsList"
+    )
+    .appendChild(item);
+
+  input.value = "";
+
+  }
+  function followUser(button){
+
+  let count =
+    document.getElementById(
+      "followersCount"
+    );
+
+  let number =
+    Number(count.innerText);
+
+  if(button.innerText === "Follow"){
+
+    number++;
+
+    button.innerText =
+      "Following";
+
+  }else{
+
+    number--;
+
+    button.innerText =
+      "Follow";
+
+  }
+
+  count.innerText =
+    number;
+
+  }
+</script>
+<div
+  id="commentsPanel"
+  class="panel hide">
+
+  <button
+    class="close"
+    onclick="document.getElementById('commentsPanel').classList.add('hide')">
+    Close
+
+  </button>
+
+  <h2>
+    💬 Comments
+  </h2>
+<input
+  id="commentInput"
+  type="text"
+  placeholder="Write a comment">
+
+<button
+  class="mainBtn"
+  onclick="addComment()">
+  Add Comment
+
+</button>
+  <div
+    id="commentsList"
+    class="commentsBox">
+  </div>
+
+</div>
+  
+  <script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/12.3.0/firebase-app.js";
+
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail
+}
+from "https://www.gstatic.com/firebasejs/12.3.0/firebase-auth.js";
+
+import {
+  getFirestore,
+  doc,
+  setDoc
+}
+from "https://www.gstatic.com/firebasejs/12.3.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDv0f9IP4K4C7geEHtvK9r6zflkpGG1du0",
+  authDomain: "clipstar-804-808ac.firebaseapp.com",
+  projectId: "clipstar-804-808ac",
+  storageBucket: "clipstar-804-808ac.firebasestorage.app",
+  messagingSenderId: "1011080197199",
+  appId: "1:1011080197199:web:206fa9c0cbb3da05f4263a"
+};
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+window.loginUser = async function(){
+
+  let username =
+    document.getElementById("username").value.trim();
+
+  let email =
+    document.getElementById("email").value.trim();
+
+  let password =
+    document.getElementById("password").value.trim();
+
+  if(!username || !email || !password){
+    document.getElementById("loginMsg").innerText =
+      "Username, email aur password likho.";
+    return;
+  }
+
+  try{
+
+    await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+createUserWithEmailAndPassword
+    sendPasswordResetEmail
+    document.getElementById("login").classList.add("hide");
+    document.getElementById("home").classList.remove("hide");
+    document.getElementById("profileName").innerText =
+      "@" + username;
+
+  }catch(error){
+
+    document.getElementById("loginMsg").innerText =
+      "Login open page: " + error.message;
+
+  }
+
+};
+window.registerUser = async function(){
+window.forgotPassword = async function(){
+await createUserWithEmailAndPassword(
+  auth,
+  email,
+  password
+);
+  window.registerUser = async function(){
+
+  let username =
+    document.getElementById("username").value.trim();
+
+  let email =
+    document.getElementById("email").value.trim();
+
+  let password =
+    document.getElementById("password").value.trim();
+
+  try{
+
+    await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+
+    let user = auth.currentUser;
+
+    await setDoc(
+      doc(db, "users", user.uid),
+      {
+        username: username,
+        email: email,
+        createdAt: new Date()
+      }
+    );
+
+    document.getElementById("loginMsg").innerText =
+      "Account successfully create ho gaya!";
+
+  }catch(error){
+
+    document.getElementById("loginMsg").innerText =
+      "Register failed: " + error.message;
+
+  }
+
+};
+  window.forgotPassword = async function(){
+
+  let email =
+    document.getElementById("email").value.trim();
+
+  if(!email){
+    document.getElementById("loginMsg").innerText =
+      "Pehle email likho.";
+    return;
+  }
+
+  try{
+
+    await sendPasswordResetEmail(
+      auth,
+      email
+    );
+
+    document.getElementById("loginMsg").innerText =
+      "Password reset email bhej di gayi hai.";
+
+  }catch(error){
+
+    document.getElementById("loginMsg").innerText =
+      "Reset failed: " + error.message;
+
+  }
+
+};
+  let user = auth.currentUser;
+
+await setDoc(
+  doc(db, "users", user.uid),
+  {
+    username: username,
+    email: email,
+    createdAt: new Date()
+  }
+);
+  let username =
+  document.getElementById("username").value.trim();
+  let email =
+    document.getElementById("email").value.trim();
+
+  if(!email){
+
+    document.getElementById("loginMsg").innerText =
+      "Pehle email likho.";
+
+    return;
+  }
+
+  try{
+
+    await sendPasswordResetEmail(
+      auth,
+      email
+    );
+
+    document.getElementById("loginMsg").innerText =
+      "Password reset email bhej di gayi hai.";
+
+  }catch(error){
+
+    document.getElementById("loginMsg").innerText =
+      "Reset failed: " + error.message;
+
+  }
+
+};
+  let email =
+    document.getElementById("email").value.trim();
+
+  let password =
+    document.getElementById("password").value.trim();
+
+  if(!email || !password){
+
+    document.getElementById("loginMsg").innerText =
+      "Email aur password likho.";
+
+    return;
+  }
+
+  try{
+
+    await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    document.getElementById("loginMsg").innerText =
+      "Account successfully create ho gaya!";
+
+  }catch(error){
+
+    document.getElementById("loginMsg").innerText =
+      "Register failed: " + error.message;
+
+  }
+
+};
+    window.forgotPassword = async function(){
+
+  let email =
+    document.getElementById("email").value.trim();
+
+  if(!email){
+    document.getElementById("loginMsg").innerText =
+      "Pehle email likho.";
+    return;
+  }
+
+  try{
+
+    await sendPasswordResetEmail(auth, email);
+
+    document.getElementById("loginMsg").innerText =
+      "Reset email bhej di gayi hai.";
+
+  }catch(error){
+
+    document.getElementById("loginMsg").innerText =
+      "Reset failed: " + error.message;
+
+  }
+
+};
+  </script>
+</body>
+
+</html>
